@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<computers xmlns="http://tang.quawnei/schema/computers"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://tang.quawnei/schema/computers computers.xsd">
+  <computer serialNumber="5CAR258TSH"
+            name="HP ZHAN 99 Mobile Workstation G2">
+    <CPUs>
+      <CPU>
+        <name>AMD Ryzen™ 7 4800H with Radeon Graphics</name>
+        <manufacturer>Advanced Micro Devices, Inc.</manufacturer>
+        <logicCore>16</logicCore>
+        <maxClock.GHz>4.2</maxClock.GHz>
+        <TDP.W>45</TDP.W>
+        <pice.version>3.0</pice.version>
+        <productionDate>2020-01-06</productionDate>
+      </CPU>
+    </CPUs>
+<!--    <CPUs>-->
+<!--      <CPU>-->
+<!--        <name>i7</name>-->
+<!--        <manufacturer>Inter</manufacturer>-->
+<!--        <logicCore>12</logicCore>-->
+<!--        <maxClock.GHz>5.0</maxClock.GHz>-->
+<!--        <TDP.W>55</TDP.W>-->
+<!--        <pice.version>4.0</pice.version>-->
+<!--        <productionDate>2002-10-09</productionDate>-->
+<!--      </CPU>-->
+<!--    </CPUs>-->
+    <memories>
+      <memory>
+        <name>Micron Technology</name>
+        <serialNumber>283EA70B</serialNumber>
+        <size.GB>4</size.GB>
+        <dataWidth.bits>64</dataWidth.bits>
+        <type>DDR4</type>
+        <speed.MTps>3200</speed.MTps>
+      </memory>
+      <memory>
+        <name>Samsung</name>
+        <serialNumber>38B6C4DE</serialNumber>
+        <size.GB>16</size.GB>
+        <dataWidth.bits>64</dataWidth.bits>
+        <type>DDR4</type>
+        <speed.MTps>3200</speed.MTps>
+      </memory>
+    </memories>
+    <pciDevices>
+      <videoCards>
+        <videoCard>
+          <name>Quadro P620</name>
+          <description>VGA compatible controller</description>
+          <type>Independent</type>
+          <manufacturer>NVIDIA Corporation</manufacturer>
+        </videoCard>
+        <videoCard>
+          <name>AMD/ATI Radeon Graphics</name>
+          <description>VGA compatible controller</description>
+          <type>Embedded</type>
+          <manufacturer>Advanced Micro Devices, Inc.</manufacturer>
+        </videoCard>
+      </videoCards>
+      <disks>
+        <disk>
+          <name>nvme0n1</name>
+          <description>SAMSUNG Non-Volatile memory</description>
+          <manufacturer>Samsung Electronics Co Ltd</manufacturer>
+          <type>SSD</type>
+          <size.GB>256</size.GB>
+        </disk>
+        <disk>
+          <name>sda</name>
+          <description>Western Digital Blue Mobile (SMR)</description>
+          <manufacturer>Western Digital Co Ltd</manufacturer>
+          <type>HDD</type>
+          <size.GB>1024</size.GB>
+        </disk>
+      </disks>
+    </pciDevices>
+  </computer>
+</computers>

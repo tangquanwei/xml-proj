@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE CATALOG SYSTEM "CATALOG.dtd">
+
+<CATALOG>
+  <PRODUCT CATEGORY="HandTool"
+           INVENTORY="Backordered"
+           NAME="Tang" PARTNUM="Quanwei"
+           PLANT="Chicago">
+    <SPECIFICATIONS POWER="200" WEIGHT="1000">
+      SPE
+    </SPECIFICATIONS>
+    <OPTIONS ADAPTER="Included">湾湾</OPTIONS>
+    <PRICE>7.5</PRICE>
+    <PRICE MSRP="msp" SHIPPING="as"
+           STREET="qwc" WHOLESALE="qw">12.5
+    </PRICE>
+    <NOTES>撒旦</NOTES>
+  </PRODUCT>
+  <PRODUCT CATEGORY="Shop-Professional"
+           PLANT="Milwaukee"
+           PARTNUM="旦旦" NAME="二狗"
+           INVENTORY="InStock">
+    <SPECIFICATIONS>SSP</SPECIFICATIONS>
+    <PRICE>12.4</PRICE>
+  </PRODUCT>
+  <PRODUCT CATEGORY="Table"
+           INVENTORY="Discontinued"
+           NAME="阿三" PARTNUM="啊喂"
+           PLANT="Pittsburgh">
+    <SPECIFICATIONS>SSP Pro</SPECIFICATIONS>
+    <PRICE>98.2</PRICE>
+  </PRODUCT>
+</CATALOG>

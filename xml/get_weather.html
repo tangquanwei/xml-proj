@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="utf-8"/> <!-- 显示中文 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<style>
+
+</style>
+<body>
+<div class="container">
+    <!-- 使用Bootstrap-->
+    <br>
+    <h1>Get Quanwei's Weather</h1>
+    <button type="button" class="btn btn-primary" onclick="loadDoc()">Get My Weather</button>
+    <table class="table table-bordered table-hover table-striped mt-4" id="demo"></table>
+</div>
+
+
+<script>
+    function loadDoc() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {// 异步回调
+            if (this.readyState === 4 && this.status === 200) {
+                myFunction(this);
+            }
+        };
+        xhttp.open("GET", "Forecast.xml", true);
+        xhttp.send();
+    }
+
+    function myFunction(xml) {
+        let table =
+            "<thead><tr><th>城市</th>" +
+            "<th>天气</th>" +
+            "<th>最低温度</th>" +
+            "<th>实时温度</th>" +
+            "<th>最高温度</th>" +
+            "<th>湿度</th>" +
+            "<th>风向及风力</th></tr></thead><tbody>";
+        const x = xml
+            .responseXML
+            .getElementsByTagName("city");
+        for (let i = 0; i < x.length; i++)
+            table += "<tr><td>" +
+                x[i].getAttribute("cityname") +
+                "</td><td>" +
+                x[i].getAttribute("stateDetailed") +
+                "</td><td>" +
+                x[i].getAttribute("tem1") +
+                "</td><td>" +
+                x[i].getAttribute("temNow") +
+                "</td><td>" +
+                x[i].getAttribute("tem2") +
+                "</td><td>" +
+                x[i].getAttribute("humidity") +
+                "</td><td>" +
+                x[i].getAttribute("windState") +
+                "</td></tr>";
+        document.getElementById("demo").innerHTML = table + "</tbody>";
+    }
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<jiuquan dn="nay">
+
+<city url="101160808" time="18:00" humidity="暂无实况" windPower="暂无实况" windDir="暂无实况" windState="东风转东北风微风级" temNow="暂无实况" tem2="31" tem1="13" stateDetailed="晴" state2="0" state1="0" pyName="dunhuangshi" fontColor="FFFFFF" centername="敦煌市" cityname="敦煌市" cityY="246" cityX="190"/>
+
+<city url="101160805" time="18:00" humidity="暂无实况" windPower="暂无实况" windDir="暂无实况" windState="东风微风级" temNow="暂无实况" tem2="30" tem1="16" stateDetailed="晴" state2="0" state1="0" pyName="guazhouxian" fontColor="FFFFFF" centername="瓜州县" cityname="瓜州县" cityY="224" cityX="319"/>
+
+<city url="101160806" time="18:00" humidity="33%" windPower="2级" windDir="西北风" windState="东南风转西北风3-4级" temNow="20" tem2="24" tem1="8" stateDetailed="多云转晴" state2="0" state1="1" pyName="shusubeimengguzuzizhixian" fontColor="FFFFFF" centername="肃北县" cityname="肃北县" cityY="324" cityX="305"/>
+
+<city url="101160804" time="18:00" humidity="暂无实况" windPower="暂无实况" windDir="暂无实况" windState="东风转东北风微风级" temNow="暂无实况" tem2="31" tem1="13" stateDetailed="晴" state2="0" state1="0" pyName="akesaihasakezuzizhixian" fontColor="FFFFFF" centername="阿克塞" cityname="阿克塞" cityY="360" cityX="202"/>
+
+<city url="101160805" time="18:00" humidity="暂无实况" windPower="暂无实况" windDir="暂无实况" windState="东风微风级" temNow="暂无实况" tem2="30" tem1="16" stateDetailed="晴" state2="0" state1="0" pyName="shusubeimengguzuzizhixian" fontColor="FFFFFF" centername="瓜州县" cityname="瓜州县" cityY="224" cityX="319"/>
+
+<city url="101160807" time="18:00" humidity="暂无实况" windPower="暂无实况" windDir="暂无实况" windState="东风微风级转3-4级" temNow="暂无实况" tem2="27" tem1="11" stateDetailed="多云转晴" state2="0" state1="1" pyName="yumenshi" fontColor="FFFFFF" centername="玉门市" cityname="玉门市" cityY="267" cityX="410"/>
+
+<city url="101160803" time="18:00" humidity="暂无实况" windPower="暂无实况" windDir="暂无实况" windState="东南风转东风微风级" temNow="暂无实况" tem2="28" tem1="13" stateDetailed="多云转晴" state2="0" state1="1" pyName="jintaxian" fontColor="FFFFFF" centername="金塔县" cityname="金塔县" cityY="279" cityX="506"/>
+
+<city url="101160801" time="18:00" humidity="47%" windPower="1级" windDir="西南风" windState="西南风转东风微风级" temNow="18" tem2="26" tem1="12" stateDetailed="多云转晴" state2="0" state1="1" pyName="jiuquanshi" fontColor="FFFF00" centername="酒泉市" cityname="酒泉市" cityY="325.2" cityX="493.35"/>
+</jiuquan>

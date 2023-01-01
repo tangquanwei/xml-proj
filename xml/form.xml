@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+文档类型定义（DTD）
+
+PCDATA 被解析的字符数据（parsed character data）
+CDATA 字符数据（character data) 不会被解析器解析
+
+<!ELEMENT 元素名称 (元素内容)> 有且仅有一次
+<!ELEMENT 元素名称 类别>
+<!ELEMENT 元素名称 EMPTY>
+<!ELEMENT 元素名称 ANY> 带有任何内容的元素
+<!ELEMENT 元素名称 (子元素名称+)> 声明最少出现一次的元素
+<!ELEMENT 元素名称 (子元素名称*)> 声明出现零次或多次的元素
+<!ELEMENT 元素名称 (子元素名称?)> 声明出现零次或一次的元素
+<!ELEMENT note (to,from,header,(message|body))>
+
+<!ATTLIST 元素名称 属性名称 属性类型 默认值>
+-->
+
+<!DOCTYPE books [
+        <!ELEMENT books (book)>
+        <!ELEMENT book (title,auther,lang,catalog,year)>
+        <!ELEMENT title      (#PCDATA)>
+        <!ELEMENT auther     (#PCDATA)>
+        <!ELEMENT lang       (#PCDATA)>
+        <!ELEMENT catalog    (#PCDATA)>
+        <!ELEMENT year       (#PCDATA)>
+        ]>
+
+<!--外部声明-->
+<!--<!DOCTYPE note SYSTEM "note.dtd">-->
+<books>
+  <book>
+    <title>Spring Pro 5</title>
+    <auther>Alice</auther>
+    <lang>en_US.UTF-8</lang>
+    <catalog>computer</catalog>
+    <year>2016</year>
+  </book>
+</books>

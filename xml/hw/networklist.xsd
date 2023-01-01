@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Data">
+    <xs:simpleType>
+      <!-- 不检查顺序，只检查有无-->
+      <xs:restriction base="xs:string">
+        <xs:enumeration value="Network"/>
+        <xs:enumeration value="Owner"/>
+        <xs:enumeration value="Feeds"/>
+        <xs:enumeration value="Notes"/>
+        <xs:enumeration value="HomePage"/>
+        <xs:enumeration value="Logo"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="Header">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Data"
+                    maxOccurs="6"
+                    minOccurs="6">
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Network" type="xs:string"/>
+  <xs:element name="Owner" type="xs:string"/>
+  <xs:element name="Feed" type="xs:string"/>
+  <xs:element name="Feeds">
+    <xs:complexType>
+      <xs:sequence>
+<!-- 可以有0个或多个-->
+        <xs:element ref="Feed"
+                    maxOccurs="unbounded"
+                    minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Notes" type="xs:string"/>
+  <xs:element name="HomePage" type="xs:anyURI"/>
+  <xs:element name="Logo" type="xs:anyURI"/>
+  <xs:element name="Row">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Network"/>
+        <xs:element ref="Owner"/>
+        <xs:element ref="Feeds"/>
+        <xs:element ref="Notes"/>
+        <xs:element ref="HomePage"/>
+        <xs:element ref="Logo"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Table">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Header"/>
+        <xs:element ref="Row"
+                    maxOccurs="unbounded"
+                    minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Workbook">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Table">
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

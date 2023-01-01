@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE NEWSPAPER [
+        <!ELEMENT NEWSPAPER (ARTICLE+)>
+        <!ELEMENT ARTICLE (HEADLINE,BYLINE,LEAD,BODY,NOTES)>
+        <!ELEMENT HEADLINE (#PCDATA)>
+        <!ELEMENT BYLINE (#PCDATA)>
+        <!ELEMENT LEAD (#PCDATA)>
+        <!ELEMENT BODY (#PCDATA)>
+        <!ELEMENT NOTES (#PCDATA)>
+        <!ATTLIST ARTICLE AUTHOR CDATA #REQUIRED>
+        <!ATTLIST ARTICLE EDITOR CDATA #IMPLIED>
+        <!ATTLIST ARTICLE DATE CDATA #IMPLIED>
+        <!ATTLIST ARTICLE EDITION CDATA #IMPLIED>
+        <!ENTITY NEWSPAPER "Vervet Logic Times">
+        <!ENTITY PUBLISHER "Vervet Logic Press">
+        <!ENTITY COPYRIGHT "Copyright 1998 Vervet Logic Press">
+        ]>
+<NEWSPAPER>
+  <ARTICLE AUTHOR="权威" DATE="2022" EDITION="1.0" EDITOR="四儿">
+    <HEADLINE>金融企业如何解决代码冲突难题？</HEADLINE>
+    <BYLINE>光大银行这么做</BYLINE>
+    <LEAD>中国光大银行是国内银行业</LEAD>
+    <BODY>2019 年，光大银行正式引入了企业级 DevOps 研发效能平台 Gitee</BODY>
+    <BODY>2019 年，光大银行正式引入了企业级 DevOps 研发效能平台 Gitee</BODY>
+    <NOTES>&NEWSPAPER; &COPYRIGHT;</NOTES>
+  </ARTICLE>
+  <ARTICLE AUTHOR="二狗" DATE="1998" EDITION="98.0" EDITOR="阿萨德">
+    <HEADLINE>中国DevOps现状调查报告</HEADLINE>
+    <LEAD>1998 首届XOps产业生态峰会</LEAD>
+    <BODY>Gitee在多项DevOps工具相关的调查结果中处于领先地位</BODY>
+    <NOTES>&PUBLISHER; &COPYRIGHT;</NOTES>
+  </ARTICLE>
+</NEWSPAPER>

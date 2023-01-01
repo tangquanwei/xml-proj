@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>XML 大作业</title>
+</head>
+
+<body>
+  <h2>获取最新消息</h2>
+  <div>
+    <button type="button" onclick="loadXML(event)">获取最新消息 XML</button>
+    <button type="button" onclick="loadJSON(event)">获取最新消息JSON</button>
+    <button type="button" onclick="document.location='info_xsl.xml'">获取最新消息XSL</button>
+    <br><br>
+    <table id="demo" border="sold"></table>
+  </div>
+
+  <script>
+
+    const loadXML = (e) => {
+      const xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+          handleXML(this.responseXML);
+        }
+      };
+
+      htm = e.target.innerHTML;
+      if (htm !== "更新新闻") {
+        e.target.innerHTML = "更新新闻";
+      }
+
+      xhr.open("GET", "info_dtd.xml", true);
+      xhr.send();
+    }
+
+
+    const handleXML = (xml) => {
+      let table = "<tr><th>通过XML</th><th>标题</th><th>来源</th><th>时间</th></tr>";
+      const x = xml.getElementsByTagName("info");
+      for (let i = 0; i < x.length; ++i) {
+        const title = x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue;
+        const img = x[i].getElementsByTagName("img")[0].childNodes[0].nodeValue;
+        const come = x[i].getElementsByTagName("come")[0].childNodes[0].nodeValue;
+        const time = x[i].getElementsByTagName("time")[0].childNodes[0].nodeValue;
+        const link = x[i].getElementsByTagName("link")[0].childNodes[0].nodeValue;
+
+        table += `<tr><td>
+          <img src="img/${img}" alt="img" width="100px">
+          </td><td>
+          <a href="${link}">${title}</a>
+          </td><td>
+          ${come}
+          </td><td>
+          ${time}
+          </td></tr>`;
+      }
+      document.getElementById("demo").innerHTML = table;
+    }
+
+    const loadJSON = (e) => {
+      const xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (this.readyState === 4 && this.status === 200) {
+          handleJSON(JSON.parse(this.response));
+        }
+      };
+
+
+      htm = e.target.innerHTML;
+      if (htm !== "更新新闻") {
+        e.target.innerHTML = "更新新闻";
+      }
+
+      xhr.open("GET", "info.json", true);
+      xhr.send();
+    }
+    const handleJSON = (json) => {
+      let table = "<tr><th>通过JSON</th><th>标题</th><th>来源</th><th>时间</th></tr>";
+      const x = json.infomation;
+      for (let i = 0; i < x.length; ++i) {
+        const title = x[i].title;
+        const img = x[i].img;
+        const come = x[i].come;
+        const time = x[i].time;
+        const link = x[i].link;
+
+        table += `<tr><td>
+          <img src="img/${img}" alt="img" width="100px">
+          </td><td>
+          <a href="${link}">${title}</a>
+          </td><td>
+          ${come}
+          </td><td>
+          ${time}
+          </td></tr>`;
+      }
+      document.getElementById("demo").innerHTML = table;
+
+    }
+  </script>
+</body>
+
+</html>

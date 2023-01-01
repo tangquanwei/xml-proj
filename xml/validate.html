@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 5px;
+  }
+</style>
+<body>
+
+<h2>Validate</h2>
+
+<table id="demo"></table>
+
+<script>
+  function loadDoc() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState === 4 && this.status === 200) {
+        myFunction(this);
+      }
+    };
+    xhttp.open("GET", "form.xml", true);
+    xhttp.send();
+  }
+
+  function myFunction(xmlDoc) {
+    xmlDoc.validateOnParse = "true"
+    document.write("<br>Error Code: ")
+    document.write(xmlDoc.parseError.errorCode)
+    document.write("<br>Error Reason: ")
+    document.write(xmlDoc.parseError.reason)
+    document.write("<br>Error Line: ")
+    document.write(xmlDoc.parseError.line)
+  }
+</script>
+
+</body>
+</html>
+

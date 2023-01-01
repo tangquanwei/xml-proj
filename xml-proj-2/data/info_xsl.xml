@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="info.xsl" ?>
+<!DOCTYPE infomation [
+  <!ELEMENT infomation (info)*>
+  <!-- 有且仅有一个 -->
+  <!ELEMENT info (title,img,come,time,link)>
+  <!ELEMENT title (#PCDATA)>
+  <!ELEMENT img (#PCDATA)>
+  <!ELEMENT come (#PCDATA)>
+  <!ELEMENT time (#PCDATA)>
+  <!ELEMENT link (#PCDATA)>
+]>
+<infomation>
+  <info>
+    <title>图集｜包机“出海抢订单”！多地组团打响外贸保卫战</title>
+    <img>1.jpg</img>
+    <come>快看</come>
+    <time>1小时前</time>
+    <link>https://www.thepaper.cn/newsDetail_forward_21096249</link>
+  </info>
+
+  <info>
+    <title>律界“邱喻大战”落幕：当事一方去世5年后，重审法院终止审理</title>
+    <img>2.jpg</img>
+    <come>一号专案</come>
+    <time>2小时前</time>
+    <link>https://www.thepaper.cn/newsDetail_forward_21100246</link>
+  </info>
+
+  <info>
+    <title>央视热评丨以司法保障捍卫英烈权益，筑牢信仰之基</title>
+    <img>3.jpg</img>
+    <come>舆论场</come>
+    <time>17分钟前</time>
+    <link>https://www.thepaper.cn/newsDetail_forward_21109788</link>
+  </info>
+
+  <info>
+    <title>国家铁路1至11月份货物运输持续保持高位运行</title>
+    <img>4.png</img>
+    <come>中国政库</come>
+    <time>22分钟前</time>
+    <link>https://www.thepaper.cn/newsDetail_forward_21109818</link>
+  </info>
+
+  <info>
+    <title>魏凤和在上合组织、独联体成员国国防部长会议上发表视频讲话</title>
+    <img>5.jpg</img>
+    <come>澎湃防务</come>
+    <time>26分钟前</time>
+    <link>https://www.thepaper.cn/newsDetail_forward_21109635</link>
+  </info>
+
+  <info>
+    <title>国家卫健委：昨日新增本土3034+10551</title>
+    <img>6.jpg</img>
+    <come>绿政公署</come>
+    <time>27分钟前</time>
+    <link>https://www.thepaper.cn/newsDetail_forward_21109784</link>
+  </info>
+
+  <info>
+    <title>早安·世界｜英国皇家邮政工人再次举行罢工</title>
+    <img>7.jpg</img>
+    <come>快看</come>
+    <time>32分钟前</time>
+    <link>https://www.thepaper.cn/newsDetail_forward_21109591</link>
+  </info>
+
+  <info>
+    <title>上海昨日新增本土确诊13例、无症状感染者259例</title>
+    <img>8.jpg</img>
+    <come>浦江头条</come>
+    <time>47分钟前</time>
+    <link>https://www.thepaper.cn/newsDetail_forward_21109572</link>
+  </info>
+
+  <info>
+    <title>进球英雄｜梅西传射建功！阿根廷2-2荷兰，以点球惊险晋级</title>
+    <img>9.jpg</img>
+    <come>快看</come>
+    <time>1小时前</time>
+    <link>https://www.thepaper.cn/newsDetail_forward_21109528</link>
+  </info>
+
+  <info>
+    <title>射手卡｜昨夜，男儿有泪！内马尔伤心欲绝，五星巴西抱憾回家</title>
+    <img>10.jpg</img>
+    <come>快看</come>
+    <time>1小时前</time>
+    <link>https://www.thepaper.cn/newsDetail_forward_21102190</link>
+  </info>
+</infomation>

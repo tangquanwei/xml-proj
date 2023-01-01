@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 5px;
+    }
+</style>
+<body>
+
+<h2>Get My Book</h2>
+
+<button type="button" onclick="loadDoc()">Get my book</button>
+<br><br>
+<table id="demo"></table>
+
+<script>
+    function loadDoc() {
+        const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState === 4 && this.status === 200) {
+                myFunction(this);
+            }
+        };
+        xhttp.open("GET", "books.xml", true);
+        xhttp.send();
+    }
+
+    function myFunction(xml) {
+        let table = "<tr><th>Title</th><th>Category</th><th>Author</th><th>Year</th><th>Price</th></tr>";
+        const x = xml.responseXML.getElementsByTagName("book");
+        for (let i = 0; i < x.length; ++i) {
+            let children = x[i].getElementsByTagName("author");
+            let child = children[0].childNodes[0].nodeValue
+            console.log(children)// 处理作者有多位的情况
+            for (let j = 1; j < children.length; ++j) {
+                child += "<br>" + children[j].childNodes[0].nodeValue
+            }
+            table += "<tr><td>" +
+                x[i].getElementsByTagName("title")[0].childNodes[0].nodeValue +
+                "</td><td>" +
+                x[i].getAttribute("category") +
+                "</td><td>"
+                + child +
+                "</td><td>"
+                + x[i].getElementsByTagName("year")[0].childNodes[0].nodeValue +
+                "</td><td>" +
+                x[i].getElementsByTagName("price")[0].childNodes[0].nodeValue +
+                "</td></tr>";
+        }
+        document.getElementById("demo").innerHTML = table;
+    }
+</script>
+
+</body>
+</html>
+

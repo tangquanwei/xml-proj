@@ -1,0 +1,5 @@
+.list{
+  width: inherit;
+  height: 570px;
+  overflow: auto;
+}

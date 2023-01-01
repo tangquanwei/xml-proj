@@ -1,0 +1,250 @@
+<xs:schema elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://tang.quawnei/schema/computers">
+  <!--  targetNamespace 可以随意定义 -->
+  <!-- 定义根元素 -->
+  <xs:element name="computers">
+    <!--
+    注释
+    xml 文件中可以查看
+    -->
+    <xs:annotation>
+      <xs:documentation>
+        targetNamespace 相当于 package
+        xmlns 相当于 import
+        xmlns:xsi 引入namespace xsi
+        xsi:schemaLocation 使用xsi
+      </xs:documentation>
+    </xs:annotation>
+
+    <xs:complexType>
+      <xs:sequence><!-- 子元素computer 可以有多个-->
+        <xs:element name="computer" maxOccurs="unbounded">
+          <xs:annotation>
+            <xs:documentation>
+              即电脑
+            </xs:documentation>
+          </xs:annotation>
+          <!--
+          !!!!!!!!!!!!!!
+          !! 边改边运行 !!
+          !!!!!!!!!!!!!!
+          -->
+          <xs:complexType>
+            <xs:sequence>
+              <!-- CUPs元素有且只有一个-->
+              <xs:element name="CPUs" minOccurs="1" maxOccurs="1">
+                <xs:complexType>
+                  <xs:sequence>
+                    <!-- 一般的电脑CPU有一个或两个-->
+                    <xs:element name="CPU" minOccurs="1" maxOccurs="2">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <!-- CPU 的名字 -->
+                          <xs:element type="xs:string" name="name"/>
+                          <!-- 制造商 -->
+                          <xs:element type="xs:string"
+                                      name="manufacturer"/>
+                          <!-- 逻辑处理器个数 -->
+                          <xs:element name="logicCore">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:short">
+                                <!-- 一般不会大于 128 不会小于 1 -->
+                                <xs:maxInclusive value="128"/>
+                                <xs:minInclusive value="1"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <!-- 最大时钟频率 四舍五入了也要大于0 -->
+                          <xs:element name="maxClock.GHz">
+                            <xs:annotation>
+                              <xs:documentation>
+                                这里的 '.GHz' 是单位， 后面也是如此
+                              </xs:documentation>
+                            </xs:annotation>
+                            <xs:simpleType>
+                              <xs:restriction base="xs:float">
+                                <xs:minExclusive value="0"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <!-- 功率 至少1W -->
+                          <xs:element name="TDP.W">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:byte">
+                                <xs:minExclusive value="1"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <!-- pcie版本 默认3.0 -->
+                          <xs:element type="xs:float"
+                                      name="pice.version"
+                                      default="3.0"/>
+                          <!-- 格式 YYYY-MM-DD -->
+                          <xs:element type="xs:date"
+                                      name="productionDate"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="memories">
+                <xs:complexType>
+                  <xs:sequence>
+                    <!-- 内存条可以有一到多个 -->
+                    <xs:element name="memory" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <!-- 内存条名字 -->
+                          <xs:element type="xs:string" name="name"/>
+                          <!-- 内存条序列号 -->
+                          <xs:element name="serialNumber">
+                            <xs:simpleType>
+                              <xs:restriction base="xs:string">
+                                <!-- 序列号是8位A-Z或0-9的字符-->
+                                <xs:pattern value="([A-Z0-9]){8}"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <!-- 内存条大小 -->
+                          <xs:element type="xs:byte" name="size.GB"/>
+                          <!-- 内存条位数 -->
+                          <xs:element type="xs:byte"
+                                      name="dataWidth.bits"/>
+                          <!-- 内存条类型 -->
+                          <xs:element name="type">
+                            <xs:simpleType>
+                              <!-- 有多种 -->
+                              <xs:restriction base="xs:string">
+                                <xs:enumeration value="DDR3"/>
+                                <xs:enumeration value="DDR4"/>
+                                <xs:enumeration value="DDR5"/>
+                                <xs:enumeration value="LPDDR3"/>
+                                <xs:enumeration value="LPDDR4"/>
+                                <xs:enumeration value="LPDDR5"/>
+                              </xs:restriction>
+                            </xs:simpleType>
+                          </xs:element>
+                          <!-- 内存条频率 -->
+                          <xs:element type="xs:short"
+                                      name="speed.MTps"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+
+              <!-- pci总线上连的设备 -->
+              <xs:element name="pciDevices">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="videoCards">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <!-- 显卡可以有0个或多个 -->
+                          <xs:element name="videoCard"
+                                      maxOccurs="unbounded"
+                                      minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <!-- 名称 -->
+                                <xs:element type="xs:string"
+                                            name="name"/>
+                                <!-- 描述 -->
+                                <xs:element type="xs:string"
+                                            name="description"/>
+                                <!-- 类型 -->
+                                <xs:element name="type">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <!-- 类型只能是 独立显卡 或 集成显卡 -->
+                                      <xs:pattern value="Independent|Embedded"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <!-- 制造商 -->
+                                <xs:element type="xs:string"
+                                            name="manufacturer"/>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                    <!-- 磁盘 -->
+                    <xs:element name="disks">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <!-- 没有磁盘电脑也能运行 -->
+                          <xs:element name="disk"
+                                      maxOccurs="unbounded"
+                                      minOccurs="0">
+                            <xs:complexType>
+                              <xs:sequence>
+                                <!-- 磁盘名 -->
+                                <xs:element type="xs:string"
+                                            name="name"/>
+                                <!-- 磁盘的描述 -->
+                                <xs:element type="xs:string"
+                                            name="description"/>
+                                <!-- 制造商 -->
+                                <xs:element type="xs:string"
+                                            name="manufacturer"/>
+
+                                <xs:element name="type">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                      <!-- 类型可以是 SSD 或 HDD -->
+                                      <xs:enumeration value="SSD"/>
+                                      <xs:enumeration value="HDD"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                                <xs:element name="size.GB">
+                                  <xs:simpleType>
+                                    <xs:restriction base="xs:short">
+                                      <!-- 磁盘大小 至少1GB-->
+                                      <xs:minInclusive value="1"/>
+                                    </xs:restriction>
+                                  </xs:simpleType>
+                                </xs:element>
+                              </xs:sequence>
+                            </xs:complexType>
+                          </xs:element>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <!--
+            computer 的属性
+            放前边会报错
+            -->
+            <xs:attribute name="serialNumber" use="required">
+              <!--
+              simpleType 元素定义一个简单类型
+              规定与具有纯文本内容的元素或属性的值有关的信息以及对它们的约束
+              -->
+              <xs:simpleType>
+                <xs:restriction base="xs:string">
+                  <!-- 序列号是10位A-Z或0-9的字符-->
+                  <xs:pattern value="([A-Z0-9]){10}"/>
+                  <!--
+                  restriction
+                  定义的约束
+                  -->
+                </xs:restriction>
+              </xs:simpleType>
+            </xs:attribute>
+            <!-- name 是可选的 -->
+            <xs:attribute type="xs:string" name="name"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

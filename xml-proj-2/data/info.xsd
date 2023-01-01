@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="infomation" type="infomationType"/>
+  <xs:complexType name="infoType">
+    <xs:sequence>
+      <xs:element type="xs:string" name="title"/>
+      <xs:element type="xs:string" name="img"/>
+      <xs:element type="xs:string" name="come"/>
+      <xs:element type="xs:string" name="time"/>
+      <xs:element type="xs:string" name="link"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="infomationType">
+    <xs:sequence>
+      <xs:element type="infoType" name="info" maxOccurs="unbounded" minOccurs="0"/>
+      <!-- 0 条或多条-->
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
